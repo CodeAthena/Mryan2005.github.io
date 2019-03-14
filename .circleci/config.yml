@@ -14,6 +14,7 @@ jobs:
 
     steps:
       - checkout
+      - run: sudo su
       - run: npm install hexo-cli -g
       # Download and cache dependencies
       - restore_cache:
