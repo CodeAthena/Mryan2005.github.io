@@ -22,9 +22,8 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run:
-        option1: npm install hexo --save
-        option2: npm install hexo-cli -g
+      - run: npm install hexo --save
+      - run: npm install hexo-cli -g
       - save_cache:
           paths:
             - node_modules
