@@ -16,7 +16,6 @@ install:
 - npm install hexo --save
 - npm install hexo-cli -g
 - hexo -v
-- npm audit
 - npm audit fix
 - echo "hexo安装完成"
 script:
