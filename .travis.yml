@@ -18,6 +18,8 @@ install:
 - npm uninstall hexo-server
 - npm install hexo-server --save -d
 - hexo -v
+- npm audit
+- npm audit fix
 - echo "hexo安装完成"
 script:
 - echo "正在构建网站"
