@@ -23,7 +23,6 @@ jobs:
             - v1-dependencies-
 
       - run:
-        command: 
         option1: npm install hexo --save
         option2: npm install hexo-cli -g
       - save_cache:
