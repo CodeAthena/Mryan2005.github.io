@@ -15,8 +15,6 @@ install:
 - echo "清空完成，正在安装hexo"
 - npm install hexo --save
 - npm install hexo-cli -g
-- npm uninstall hexo-server
-- npm install hexo-server --save -d
 - hexo -v
 - npm audit
 - npm audit fix
