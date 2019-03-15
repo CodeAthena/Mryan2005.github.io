@@ -19,7 +19,6 @@ jobs:
       - run: sudo npm install hexo --save
       - run: hexo -v
       - run: echo "install hexo done"
-      - run: git checkout -b src origin/src
       - run: echo "delete ./.git"
       - run: sudo rm -rf ./.git
       - run: ehco "delete ./.git done"
