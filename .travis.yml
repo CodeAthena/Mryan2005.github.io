@@ -39,7 +39,7 @@ after_script:
 - echo "部署完成"
 branches:
   only:
-  - master
+  - src
 env:
   global:
   - coding_WEB: git.dev.tencent.com/Mryan05/mryan05.coding.me.git
