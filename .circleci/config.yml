@@ -14,8 +14,27 @@ jobs:
 
     steps:
       - checkout
+      - run: echo "install hexo"
       - run: sudo npm install hexo-cli -g
       - run: sudo npm install hexo --save
+      - run: hexo -v
+      - run: echo "install hexo done"
+      - run: git checkout -b src origin/src
+      - run: echo "delete ./.git"
+      - run: sudo rm -rf ./.git
+      - run: ehco "delete ./.git done"
+      - run: ehco "generate dome blog"
+      - run: hexo clean
+      - run: hexo generate
+      - run: ehco "generate dome blog done"
+      - run: sudo git config --global user.name "CircleCI"
+      - run: git config --global user.email "40586009+Mryan2005@users.noreply.github.com"
+      - run: cd public
+      - run: git init
+      - run: git remote add origin https://github.com/Mryan2005/Mryan2005.github.io.git
+      - run: git add .
+      - run: git commit -m "CircleCI Auto Builder"
+      - run: git push --force --quiet "https://Mryan05:${GH_Token}@github.com/Mryan2005/Mryan2005.github.io.git" master
       # Download and cache dependencies
       #- restore_cache:
       #    keys:
