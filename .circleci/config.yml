@@ -12,9 +12,8 @@ jobs:
 
     working_directory: ~/repo
     branches:
-      only:
+      ignore:
         - master
-        - /rc-.*/
     steps:
       - checkout
       - run: echo "install hexo"
