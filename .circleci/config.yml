@@ -41,6 +41,8 @@ jobs:
       - run: sudo rm -f "package-lock.json"
       - run: sudo rm -f "package.json"
       - run: sudo rm -f "readme.md"
+      - run: sudo rm -f ".gitignore"
+      - run: sudo rm -f ".travis.yml"
       - run: git init
       - run: git remote add origin https://github.com/Mryan2005/Mryan2005.github.io.git
       - run: git add .
