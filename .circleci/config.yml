@@ -28,14 +28,15 @@ jobs:
       - run: hexo clean
       - run: hexo generate
       - run: echo "generate dome blog done"
-      - run: git config --global user.email "40586009+Mryan2005@users.noreply.github.com"
-      - run: git config --global user.name "CircleCI"
-      - run: cd public/
-      - run: git init
-      - run: git remote add origin https://github.com/Mryan2005/Mryan2005.github.io.git
-      - run: git add .
-      - run: git commit -m "CircleCI Auto Builder"
-      - run: git push --force --quiet "https://Mryan05:${GH_Token}@github.com/Mryan2005/Mryan2005.github.io.git" master
+      - run: ls
+#      - run: git config --global user.email "40586009+Mryan2005@users.noreply.github.com"
+#      - run: git config --global user.name "CircleCI"
+#      - run: cd public/
+#      - run: git init
+#      - run: git remote add origin https://github.com/Mryan2005/Mryan2005.github.io.git
+#      - run: git add .
+#      - run: git commit -m "CircleCI Auto Builder"
+#      - run: git push --force --quiet "https://Mryan05:${GH_Token}@github.com/Mryan2005/Mryan2005.github.io.git" master
       # Download and cache dependencies
       #- restore_cache:
       #    keys:
