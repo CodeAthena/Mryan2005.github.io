@@ -25,7 +25,7 @@ script:
 after_script:
 - echo "正在设置git配置文件"
 - git config --global user.name "travis"
-- git config --global user.email "a2564011261@163.com"
+- git config --global user.email "40586009+Mryan2005@users.noreply.github.com"
 - echo "设置完成，准备进入部署状态"
 - echo "正在跳转的网页根目录"
 - cd public
@@ -43,4 +43,4 @@ branches:
 env:
   global:
   - coding_WEB: git.dev.tencent.com/Mryan05/mryan05.coding.me.git
-  - GH_web: github.com/Mryan2005/Myblog.git
+  - GH_WEB: github.com/Mryan2005/Myblog.git
