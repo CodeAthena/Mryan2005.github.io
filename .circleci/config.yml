@@ -25,7 +25,8 @@ jobs:
       - run: hexo clean
       - run: hexo generate
       - run: echo "generate dome blog done"
-      - run: cd "public"
+    working_directory: ~/repo
+    steps:
       - run: git config --global user.email "40586009+Mryan2005@users.noreply.github.com"
       - run: git config --global user.name "CircleCI"
       - run: ls
