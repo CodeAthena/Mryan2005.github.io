@@ -40,7 +40,13 @@ jobs:
       # run tests!
       #- run: 
   deploy:
+    docker:
+      - image: circleci/node:7.10
+    branches:
+      ignore:
+        - master
     working_directory: ~/repo/public
+    steps:
       - run: echo "generate dome blog"
       - run: hexo clean
       - run: hexo generate
