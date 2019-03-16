@@ -32,10 +32,10 @@ after_script:
 - echo "跳转完成，正在进入初始化"
 - git init
 - echo "初始化完成，开始部署"
-- git remote add origin https://git.dev.tencent.com/Mryan05/mryan05.coding.me.git
+- git remote add origin https://github.com/Mryan2005/Myblog.git
 - git add .
 - git commit -m "Travis CI Auto Builder"
-- git push --force --quiet "https://Mryan05:${coding_Token}@${coding_WEB}" master:master
+- git push --force --quiet "https://Mryan05:${GH_Token}@${GH_web}" master
 - echo "部署完成"
 branches:
   only:
@@ -43,3 +43,4 @@ branches:
 env:
   global:
   - coding_WEB: git.dev.tencent.com/Mryan05/mryan05.coding.me.git
+  - GH_web: github.com/Mryan2005/Myblog.git
