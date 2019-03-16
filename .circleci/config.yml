@@ -21,7 +21,6 @@ jobs:
       - run: sudo npm install hexo --save
       - run: hexo -v
       - run: echo "install hexo done"
-      - run: echo "delete ./.git"
       - run: sudo rm -rf ./.git
       # Download and cache dependencies
       #- restore_cache:
