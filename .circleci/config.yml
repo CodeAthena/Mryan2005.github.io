@@ -10,7 +10,9 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
     working_directory: ~/repo
-    
+    branches:
+      ignore:
+        - master
     steps:
       - checkout
       - run: echo "install hexo"
@@ -19,6 +21,19 @@ jobs:
       - run: hexo -v
       - run: echo "install hexo done"
       - run: sudo rm -rf ./.git
+      - run: echo "generate dome blog"
+      - run: hexo clean
+      - run: hexo generate
+      - run: echo "generate dome blog done"
+      - run: public
+      - run: git config --global user.email "40586009+Mryan2005@users.noreply.github.com"
+      - run: git config --global user.name "CircleCI"
+      - run: ls
+      - run: git init
+      - run: git remote add origin https://github.com/Mryan2005/Mryan2005.github.io.git
+      - run: git add .
+      - run: git commit -m "CircleCI Auto Builder"
+      - run: git push --force --quiet "https://Mryan05:${GH_Token}@github.com/Mryan2005/Mryan2005.github.io.git" master
       # Download and cache dependencies
       #- restore_cache:
       #    keys:
@@ -35,32 +50,10 @@ jobs:
       #      - v1-dependencies-{{ checksum "package-lock.json" }}
             
       # run tests!
-      #- run: 
-  test:
-    working_directory: ~/repo/public
-    docker:
-      - image: circleci/node:7.10
-    steps:
-      - checkout
-      - run: echo "generate dome blog"
-      - run: hexo clean
-      - run: hexo generate
-      - run: echo "generate dome blog done"
-      - run: ls
-      - run: git config --global user.email "40586009+Mryan2005@users.noreply.github.com"
-      - run: git config --global user.name "CircleCI"
-      - run: ls
-      - run: git init
-      - run: git remote add origin https://github.com/Mryan2005/Mryan2005.github.io.git
-      - run: git add .
-      - run: git commit -m "CircleCI Auto Builder"
-      - run: git push --force --quiet "https://Mryan05:${GH_Token}@github.com/Mryan2005/Mryan2005.github.io.git" master
+      #- run:
+      
 workflows:
-  branches:
-      ignore:
-        - master
   version: 2
-  build_and_test:
+  build:
     jobs:
       - build
-      - test
