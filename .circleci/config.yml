@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  install_hexo:
+  build:
     docker:
       # specify the version you desire here
       - image: circleci/node:7.10
@@ -39,7 +39,7 @@ jobs:
             
       # run tests!
       #- run: 
-  deploy_blog:
+  test:
     docker:
       - image: circleci/node:7.10
     branches:
@@ -47,6 +47,7 @@ jobs:
         - master
     working_directory: ~/repo/public
     steps:
+      - checkout
       - run: echo "generate dome blog"
       - run: hexo clean
       - run: hexo generate
@@ -64,5 +65,5 @@ workflows:
   version: 2
   install_and_deploy:
     jobs:
-      - install_hexo
-      - deploy_blog
+      - build
+      - test
