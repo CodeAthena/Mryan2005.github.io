@@ -35,7 +35,7 @@ after_script:
 - git remote add origin https://github.com/Mryan2005/Myblog.git
 - git add .
 - git commit -m "Travis CI Auto Builder"
-- git push --force --quiet "https://Mryan05:${GH_Token}@${GH_web}" master
+- git push --force --quiet "https://${GH_Token}@${GH_web}" master
 - echo "部署完成"
 branches:
   only:
