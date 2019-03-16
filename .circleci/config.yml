@@ -21,7 +21,7 @@ jobs:
       - run: sudo npm install hexo --save
       - run: hexo -v
       - run: echo "install hexo done"
-      - run: sudo rm -rf ./.git
+      - run: sudo rm -rf ".git"
       - run: echo "generate dome blog"
       - run: hexo clean
       - run: hexo generate
@@ -30,6 +30,17 @@ jobs:
       - run: git config --global user.email "40586009+Mryan2005@users.noreply.github.com"
       - run: git config --global user.name "CircleCI"
       - run: ls
+      - run: sudo rm -rf "node_modules"
+      - run: sudo rm -rf "source"
+      - run: sudo rm -rf "scaffolds"
+      - run: sudo rm -rf "themes"
+      - run: sudo cp -r public/. ~/repo
+      - run: sudo rm -rf "public"
+      - run: sudo rm -f "_config.yml"
+      - run: sudo rm -f "db.json"
+      - run: sudo rm -f "package-lock.json"
+      - run: sudo rm -f "package.json"
+      - run: sudo rm -f "readme.md"
       - run: git init
       - run: git remote add origin https://github.com/Mryan2005/Mryan2005.github.io.git
       - run: git add .
