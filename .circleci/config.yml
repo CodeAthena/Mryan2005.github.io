@@ -31,7 +31,8 @@ jobs:
       - run: ls
 #      - run: git config --global user.email "40586009+Mryan2005@users.noreply.github.com"
 #      - run: git config --global user.name "CircleCI"
-#      - run: cd public/
+      - run: cd public
+      - run: ls
 #      - run: git init
 #      - run: git remote add origin https://github.com/Mryan2005/Mryan2005.github.io.git
 #      - run: git add .
