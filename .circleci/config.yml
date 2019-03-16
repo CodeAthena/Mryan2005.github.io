@@ -25,8 +25,8 @@ jobs:
       - run: sudo rm -rf ".git"
       - run: echo "generate dome blog"
       - run: hexo clean
-      - run: hexo generate
-      - run: hexo deploy
+      - run: hexo g
+      - run: hexo d
       - run: echo "generate dome blog done"
 #      - run: ls
 #      - run: git init
