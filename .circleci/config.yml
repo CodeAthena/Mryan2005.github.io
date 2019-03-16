@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  install:
     docker:
       # specify the version you desire here
       - image: circleci/node:7.10
@@ -23,21 +23,6 @@ jobs:
       - run: echo "install hexo done"
       - run: echo "delete ./.git"
       - run: sudo rm -rf ./.git
-      - run: echo "delete ./.git done"
-      - run: echo "generate dome blog"
-      - run: hexo clean
-      - run: hexo generate
-      - run: echo "generate dome blog done"
-      - run: ls
-#      - run: git config --global user.email "40586009+Mryan2005@users.noreply.github.com"
-#      - run: git config --global user.name "CircleCI"
-      - run: cd /home/circleci/repo/public
-      - run: ls
-#      - run: git init
-#      - run: git remote add origin https://github.com/Mryan2005/Mryan2005.github.io.git
-#      - run: git add .
-#      - run: git commit -m "CircleCI Auto Builder"
-#      - run: git push --force --quiet "https://Mryan05:${GH_Token}@github.com/Mryan2005/Mryan2005.github.io.git" master
       # Download and cache dependencies
       #- restore_cache:
       #    keys:
@@ -55,4 +40,25 @@ jobs:
             
       # run tests!
       #- run: 
-#  deploy:
+  deploy:
+    working_directory: ~/repo/public
+      - run: echo "delete ./.git done"
+      - run: echo "generate dome blog"
+      - run: hexo clean
+      - run: hexo generate
+      - run: echo "generate dome blog done"
+      - run: ls
+      - run: git config --global user.email "40586009+Mryan2005@users.noreply.github.com"
+      - run: git config --global user.name "CircleCI"
+      - run: ls
+      - run: git init
+      - run: git remote add origin https://github.com/Mryan2005/Mryan2005.github.io.git
+      - run: git add .
+      - run: git commit -m "CircleCI Auto Builder"
+      - run: git push --force --quiet "https://Mryan05:${GH_Token}@github.com/Mryan2005/Mryan2005.github.io.git" master
+workflows:
+  version: 2
+  install_and_deploy:
+    jobs:
+      - install
+      - deploy
