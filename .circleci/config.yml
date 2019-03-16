@@ -57,9 +57,10 @@ jobs:
 workflows:
   version: 3
   build-deploy:
+    filters:
+      branches:
+        ignore:
+          - master
     jobs:
     - build
     - deploy
-  branches:
-      ignore:
-        - master
