@@ -1,4 +1,4 @@
-version: 3
+version: 2
 jobs:
   build:
     docker:
@@ -55,7 +55,7 @@ jobs:
       - run: git commit -m "CircleCI Auto Builder"
       - run: git push --force --quiet "https://Mryan05:${GH_Token}@github.com/Mryan2005/Mryan2005.github.io.git" master
 workflows:
-  version: 3
+  version: 2
   build-deploy:
     filters:
       branches:
