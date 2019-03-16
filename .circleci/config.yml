@@ -10,9 +10,6 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
     working_directory: ~/repo
-    branches:
-      ignore:
-        - master
     steps:
       - checkout
       - run: echo "install hexo"
@@ -25,18 +22,7 @@ jobs:
       - run: hexo clean
       - run: hexo generate
       - run: echo "generate dome blog done"
-      - run:
-        shell: /bin/sh
-        command: |
-          cd "public"
-      - run: git config --global user.email "40586009+Mryan2005@users.noreply.github.com"
-      - run: git config --global user.name "CircleCI"
-      - run: ls
-      - run: git init
-      - run: git remote add origin https://github.com/Mryan2005/Mryan2005.github.io.git
-      - run: git add .
-      - run: git commit -m "CircleCI Auto Builder"
-      - run: git push --force --quiet "https://Mryan05:${GH_Token}@github.com/Mryan2005/Mryan2005.github.io.git" master
+      
       # Download and cache dependencies
       #- restore_cache:
       #    keys:
@@ -54,3 +40,26 @@ jobs:
             
       # run tests!
       #- run:
+  deploy:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:7.10
+    working_directory: ~/repo/public
+    steps:
+      - run: git config --global user.email "40586009+Mryan2005@users.noreply.github.com"
+      - run: git config --global user.name "CircleCI"
+      - run: ls
+      - run: git init
+      - run: git remote add origin https://github.com/Mryan2005/Mryan2005.github.io.git
+      - run: git add .
+      - run: git commit -m "CircleCI Auto Builder"
+      - run: git push --force --quiet "https://Mryan05:${GH_Token}@github.com/Mryan2005/Mryan2005.github.io.git" master
+workflows:
+  version: 3
+  build-deploy:
+    jobs:
+    - build
+    - deploy
+  branches:
+      ignore:
+        - master
